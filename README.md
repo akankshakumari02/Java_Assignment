@@ -1,3 +1,3 @@
 # IntroToJava2
 
-### Assignment Questions of Day 2
+### Questions of Day 2
