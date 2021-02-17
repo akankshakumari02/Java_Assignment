@@ -1,9 +1,22 @@
 import java.lang.Exception;
 class ClassIdNotFoundException extends Exception
 {
-    public ClassIdNotFoundException(String msg, boolean enableSuppression, boolean writeableStackTrace)
+    private boolean classStacktrace = false;
+    public ClassIdNotFoundException(String msg, boolean classStacktrace)
     {
-        super(msg,null,enableSuppression,writeableStackTrace);
+        super(msg,null,classStacktrace,!classStacktrace);
+        this.classStacktrace = classStacktrace;
+    }
+    public String toString()
+    {
+        if(classStacktrace)
+        {
+            return getLocalizedMessage();
+        }
+        else
+        {
+            return super.toString();
+        }
     }
 }
 
@@ -17,7 +30,7 @@ public class Ques13
         }
         else
         {
-            throw new ClassIdNotFoundException("\nCould not find class with Id "+classId,false,false);
+            throw new ClassIdNotFoundException("\nCould not find class with given id",true);
         }
     }
     public static void main(String args[])  {
@@ -26,9 +39,7 @@ public class Ques13
             find("67890");
         }catch (ClassIdNotFoundException e)
         {
-            System.out.println("Exception Occured ");
             e.printStackTrace();
         }
     }
 }
-
