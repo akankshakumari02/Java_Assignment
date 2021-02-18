@@ -1,10 +1,22 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Customer
 {
     String cname;
-    int cid;
-    int phone_number;
+    int cash;
+    int order_no;
     Order order;
-    public void place_order()
+    public void waiting()
+    {}
+
+    public void process()
+    {}
+
+    public void order_received()
+    {}
+
+    Customer()
     {}
 }
 
@@ -13,32 +25,41 @@ class Cashier
     String name;
     Order order;
     Customer customer;
+    Barista barista;
+
+    int payment;
+    int order_no;
+    int token;
+    boolean ready;
 
     public void get_order()
     { }
+
+    Cashier()
+    {}
 }
 
 class Order
 {
+    public static Queue<Integer> order = new LinkedList<>();
     Customer customer;
-    boolean status;
     int order_id;
     public Order()
     {   }
 
-    public boolean orderStatus()
-    {      }
+    void place_order()
+    {
+    }
+
+    int process_order()
+    { }
 }
 
 class Barista
 {
     Order order;
-    Cashier cash;
-    public void createOrder()
+    boolean createOrder(int token)
     {            }
-
-    public Order getOrder()
-    {      return new Order();    }
 
     public void updateOrder()
     {         }
@@ -50,5 +71,7 @@ public class Ques10
      Order order = new Order();
      Barista barista = new Barista();
      Cashier cash = new Cashier();
+
+     customer.process();
 
 }
