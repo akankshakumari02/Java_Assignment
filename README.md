@@ -1,1 +1,2 @@
-# Java_Assignment
+# Jpql
+# Native Sql Query
